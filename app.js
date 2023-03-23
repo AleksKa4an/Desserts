@@ -19,9 +19,6 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
-app.get('/home', (req, res) => {
-	res.render('home')
-});
 app.get('/campgrounds', async (req, res) => {
 	const campgrounds = await Campground.find({});
 	res.render('campgrounds/index', {campgrounds})
