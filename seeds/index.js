@@ -17,18 +17,17 @@ const random = (min, max) => Math.floor(Math.random() * min + max);
 const seedDB = async () => {
 	await Campground.deleteMany({});
 	for (let i = 0; i < 50; i++) {
-		const camp = new Campground({ title: `${sample(descriptors)} ${sample(places)}`, price: random(500, 100), location: `${cities[random(1000, 0)].city}, ${cities[random(1000, 0)].state}`, image:`${urlsArray[i]}`, description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quaerat iusto nisi dolor dolore voluptates porro, molestias magni recusandae. Enim reiciendis, atque laborum aut perferendis minus suscipit id ex veniam.'});
+		const camp = new Campground({ title: `${sample(descriptors)} ${sample(places)}`, price: random(500, 100), location: `${cities[random(1000, 0)].city}, ${cities[random(1000, 0)].state}`, image: `${urlsArray[i]}`, description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quaerat iusto nisi dolor dolore voluptates porro, molestias magni recusandae. Enim reiciendis, atque laborum aut perferendis minus suscipit id ex veniam.' });
 		await camp.save();
 	}
 }
 
-if (urlsArray.length == 50) {
-	console.log(urlsArray);
-	seedDB()
+
+seedDB()
 	.then(() => {
-	 mongoose.connection.close();
-     })
-}
+		mongoose.connection.close();
+	})
+
 
 
 

@@ -1,36 +1,4 @@
-const axios = require('axios');
-
-let urlsArray = [];
-// Upsplash API
-const apiKey = 'xPH8fsK-gG1HqJnU5ouRETnwqdtqgnC2m7-7VA4A4bA';
-const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&collections=483251&count=25`;
-
-
-async function getPhotos() {
-	let photosArray = [];
-	for (let i = 0; i < 2; i++) {
-		axios.get(apiUrl)
-			.then(response => {
-				const photos = response.data;
-				photos.forEach(photo => {
-					photosArray.push(photo.urls.regular);
-				});
-				console.log(photosArray)
-				console.log(photosArray.length)
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	}
-	urlsArray = await photosArray
-}
-
-
-module.exports = getPhotos()
-
-
-
-urlsArray = [
+module.exports = [
   'https://images.unsplash.com/photo-1497373637916-e47a55e22d0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
   'https://images.unsplash.com/photo-1444228425018-ff8535a55c93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
   'https://images.unsplash.com/photo-1496240476075-8bbe454c971a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
@@ -55,8 +23,8 @@ urlsArray = [
   'https://images.unsplash.com/photo-1500221079655-3cb71a299f6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
   'https://images.unsplash.com/photo-1503038936394-899c7389c9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
   'https://images.unsplash.com/photo-1498092590708-048e0e2f46d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
-'https://images.unsplash.com/photo-1453060590797-2d5f419b54cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
-'https://images.unsplash.com/photo-1497373637916-e47a55e22d0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
+  'https://images.unsplash.com/photo-1453060590797-2d5f419b54cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
+  'https://images.unsplash.com/photo-1497373637916-e47a55e22d0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
   'https://images.unsplash.com/photo-1444228425018-ff8535a55c93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
   'https://images.unsplash.com/photo-1496240476075-8bbe454c971a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
   'https://images.unsplash.com/photo-1489176876421-3b720db0fb3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080',
@@ -108,23 +76,3 @@ urlsArray = [
   'https://images.unsplash.com/photo-1494257473705-09a5a19d04af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0Mjk1MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAyODcwNDc&ixlib=rb-4.0.3&q=80&w=1080'
 ]
 
-
-
-
-
-
-
-
-// async function getPhotos() {
-// 	try {
-// 		const response = await fetch(apiUrl);
-// 		data = await response.json();
-// 		console.log(data.length);
-		
-// 	} catch (err) { 
-// 		console.log(err);
-// 	}
-// }
-
-// photosArray.push(getPhotos)
-// console.log(photosArray)

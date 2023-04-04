@@ -8,6 +8,12 @@
 	<h2>
 		<%= camp.price %>
 	</h2>
+	<div>
+		<img class="img-fluid" src="<%= camp.image %>" alt="Camp img">
+	</div>
+	<p>
+		<%= camp.description %>
+	</p>
 
 	<form action="/campgrounds/<%= camp._id %>?_method=delete" method="post">
 		<button>Delete</button>
