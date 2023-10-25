@@ -1,2 +1,2 @@
-# YelpCamp
-App for observing campings
+# Desserts
+Around the sweet world
