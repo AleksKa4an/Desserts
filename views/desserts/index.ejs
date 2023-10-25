@@ -1,0 +1,33 @@
+<% layout('layouts/boilerplate') %>
+	<div class="m-2 d-flex justify-content-between align-content-center">
+		<h1>Desserts</h1>
+		<a class="btn btn-info m-auto me-0" href="/desserts/new">New Dessert</a>
+	</div>
+	<% for (dessert of desserts){ %>
+		<div class="card mb-3">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="card-body">
+						<h4 class="card-title">
+							<%= dessert.title %>
+						</h4>
+						<p class="card-text">
+							<%= dessert.group %>
+						</p>
+						<p class="card-text">
+							<small class="text-muted">
+								<%= dessert.price %>
+							</small>
+						</p>
+						<p class="card-text">
+							<%= dessert.cost %>
+						</p>
+						<p class="card-text">
+							<%= dessert.recepieURL %>
+						</p>
+						<a class="btn btn-primary" href="/desserts/<%= dessert._id %>">View <%= dessert.title %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% } %>

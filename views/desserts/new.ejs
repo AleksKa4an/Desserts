@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %>
+	<div class="row">
+		<h1 class="text-center">New Dessert</h1>
+		<div class="col-6 offset-3">
+			<form action="/desserts" method="post">
+				<div class="mb-3">
+					<label class="form-label" for="title">Title:</label>
+					<input class="form-control" type="text" name="dessert[title]" id="title" placeholder="title">
+				</div>
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="Group">Country</label>
+					<select class="form-select" id="Group" name="dessert[group]">
+						<option selected>Choose...</option>
+						<option value="1">Italy</option>
+						<option value="2">France</option>
+						<option value="3">Russia</option>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="weight">Weight:</label>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="dessert-label">Grams</span>
+						<input class="form-control" type="text" name="dessert[weight]" id="weight" placeholder="weight">
+					</div>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="price">Price:</label>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="price-label">$</span>
+						<input type="text" class="form-control" aria-label="price-label" name="dessert[price]"
+							id="price" placeholder="0">
+					</div>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="title">Recipe link:</label>
+					<input class="form-control" type="text" name="dessert[recepieURL]" id="title" placeholder="link">
+				</div>
+				<button class="btn btn-success mb-3">Add dessert</button>
+			</form>
+			<a class="btn btn-warning" href="/desserts">Go back</a>
+		</div>
+	</div>

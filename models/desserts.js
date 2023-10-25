@@ -7,7 +7,8 @@ const DessertSchema = new Schema({
 	ingrediens: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Ingredient' }],
 	weight: Number,
 	cost: Number,
-	price: Number
+	price: Number,
+	recepieURL: String,
 });
 
 module.exports = mongoose.model('Dessert', DessertSchema);

@@ -1,5 +1,8 @@
 <% layout('layouts/boilerplate') %>
-	<h1>Products</h1>
+	<div class="m-2 d-flex justify-content-between align-content-center">
+		<h1>Products</h1>
+		<a class="btn btn-info m-auto me-0" href="/products/new">New Product</a>
+	</div>
 	<% for (prod of products){ %>
 		<div class="card mb-3">
 			<div class="row">
