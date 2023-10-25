@@ -6,6 +6,7 @@ const engine = require('ejs-mate');
 const methodOverride = require('method-override');
 
 const Product = require('./models/products');
+const Dessrt = require('./models/desserts');
 
 main().catch(err => console.log(err));
 
