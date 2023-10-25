@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+	<div class="row">
+		<h1 class="text-center">Edit Product</h1>
+		<div class="col-6 offset-3">
+			<form action="/products/<%= prod._id %>?_method=put" method="post">
+				<div class="mb-3">
+					<label class="form-label" for="title">Title:</label>
+					<input class="form-control" type="text" name="product[title]" id="title" placeholder="title"
+						value="<%= prod.title %>">
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="weight">Weight:</label>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="weight-label">Grams</span>
+						<input class="form-control" type="text" name="product[weight]" id="weight" placeholder="weight"
+							value="<%= prod.weight %>">
+					</div>
+				</div>
+				<div class=" mb-3">
+					<label class="form-label" for="price">Price:</label>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="price-label">$</span>
+						<input type="text" class="form-control" aria-label="price-label" name="product[price]"
+							id="price" value="<%= prod.price %>">
+					</div>
+				</div>
+				<button class=" btn btn-info mb-3">Update product</button>
+			</form>
+			<a class="btn btn-warning" href="/products/<%= prod._id %>">Go back</a>
+		</div>
+	</div>

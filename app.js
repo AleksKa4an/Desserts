@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
 const engine = require('ejs-mate');
 const methodOverride = require('method-override');
 
-const Campground = require('./models/campground');
+const Product = require('./models/products');
 
 main().catch(err => console.log(err));
 
 async function main() {
-	await mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
+	await mongoose.connect('mongodb://127.0.0.1:27017/desserts');
 	console.log('Connected to MongoDB');
 };
 
@@ -21,35 +21,35 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
-app.get('/campgrounds', async (req, res) => {
-	const campgrounds = await Campground.find({});
-	res.render('campgrounds/index', {campgrounds})
+app.get('/products', async (req, res) => {
+	const products = await Product.find({});
+	res.render('products/index', { products })
 });
-app.get('/campgrounds/new', (req, res) => {
-	res.render('campgrounds/new')
+app.get('/products/new', (req, res) => {
+	res.render('products/new')
 });
-app.post('/campgrounds', async (req, res) => {
-	const camp = new Campground(req.body.campground);
-	await camp.save();
-	res.redirect(`/campgrounds/${camp._id}`);
+app.post('/products', async (req, res) => {
+	const prod = new Product(req.body.product);
+	await prod.save();
+	res.redirect(`/products/${prod._id}`);
 });
-app.get('/campgrounds/:id', async (req, res) => {
-	const camp = await Campground.findById(req.params.id);
-	res.render('campgrounds/show', {camp})
+app.get('/products/:id', async (req, res) => {
+	const prod = await Product.findById(req.params.id);
+	res.render('products/show', { prod })
 });
-app.get('/campgrounds/:id/edit', async (req, res) => {
-	const camp = await Campground.findById(req.params.id);
-	res.render('campgrounds/edit', {camp})
+app.get('/products/:id/edit', async (req, res) => {
+	const prod = await Product.findById(req.params.id);
+	res.render('products/edit', { prod })
 });
-app.put('/campgrounds/:id', async (req, res) => {
-	const {id} = req.params;
-	const camp = await Campground.findByIdAndUpdate(id, {...req.body.campground});
-	res.redirect(`/campgrounds/${camp._id}`);
+app.put('/products/:id', async (req, res) => {
+	const { id } = req.params;
+	const prod = await Product.findByIdAndUpdate(id, { ...req.body.product });
+	res.redirect(`/products/${prod._id}`);
 });
-app.delete('/campgrounds/:id', async (req, res) => {
-	const {id} = req.params;
-	await Campground.findByIdAndDelete(id);
-	res.redirect('/campgrounds');
+app.delete('/products/:id', async (req, res) => {
+	const { id } = req.params;
+	await Product.findByIdAndDelete(id);
+	res.redirect('/products');
 });
 
 
